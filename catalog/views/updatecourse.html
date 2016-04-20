@@ -1,0 +1,30 @@
+<section class="coursespage">
+  <div class="search">
+    <h1>Modify Course Record</h1>
+    <input ng-model="query" placeholder="Search course to Edit" autofocus>
+   
+    <table cellpadding="5" cellspacing="5">
+      <thead>
+        <tr>
+          <th><h2 class="secondary-header">Course Name</h2></th>
+          <th><h2 class="secondary-header">Course Number</h2></th>
+          <th><h2 class="secondary-header">Course Status</h2></th>
+          <!-- <th><h2 class="secondary-header">Course Description</h2></th> -->
+          <th><h2 class="secondary-header">Action</h2></th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="item in courses | filter: query">
+        <td><div ng-bind-html="highlight(item.courseName, query)">{{item.courseName}}</div></td>
+        <td><div ng-bind-html="highlight(item.courseNumber, query)">{{item.courseNumber}}</div></td>
+        <td><div ng-bind-html="highlight(item.courseStatus, query)">{{item.courseStatus}}</div></td>
+        <!-- <td><div ng-bind-html="highlight(item.courseDesc, query)" ng-model="letterLimit">{{item.courseDesc | limitTo:letterLimit}}</div></td> -->
+        <td>     
+          <a href="#/editcourse?courseNumber={{item.courseNumber}}" class="edit-btn"><i title="edit" class="fa fa-pencil fa-lg"></i></a>
+          <i title="Delete" class="fa fa-trash-o fa-lg" ng-click="delete(item.courseNumber, $index)"></i>
+           </td>
+      </tr>
+      </tbody>
+    </table>
+</div>
+</section>

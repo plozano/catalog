@@ -1,0 +1,48 @@
+<section class="coursespage">
+  <ul>
+     <li class="courses cf" ng-model="courses">      
+        <div class="info">
+            <h1>{{courses[whatItem].courseName | uppercase}}</h1>
+            <h3 class="courseCat">{{courses.courseCat}}</h3>
+
+            <div class="shortDesc">
+                <div class="contentleft">
+                <span class="subheader">Course#</span>
+                <p class="cf">{{courses[whatItem].courseNumber}}</p>
+                <span class="subheader">Length</span> 
+                <p>{{courses[whatItem].length}}</p>
+                <span class="subheader">Training Frequency</span>
+                <p>{{courses[whatItem].trainingFreq}}</p>
+                </div>
+
+                <div class="contentright cf">
+                <!--indivual Categories-->
+                <span class="subheader">Course Category</span>
+                <ul class="categories" ng:repeat="child in courses[whatItem].categoryName" ng-hide="!child.caregory || child.caregory ===''">
+                    <li>{{child.caregory}}</li>
+                </ul>
+                <span class="subheader">Recommended Audience</span>
+                <p>{{courses[whatItem].recAudience}}</p>
+                </div>
+
+                <div><a href="index.html#/listcatalog"><i class="fa fa-long-arrow-left fa-lg">Back Catalog Search</a></i></div>
+            </div>
+          
+            <h2 class="secondary-header">Course Description</h2>
+            <p>{{courses[whatItem].courseDesc}}</p>
+            
+            <!--indivual languages-->
+            <h2 class="secondary-header">Available Languages</h2>
+            <ul class="langugages" ng:repeat="child in courses[whatItem].languages" ng-hide="!child.langText || child.langText ===''">
+              <li>{{child.langText}}</li>
+            </ul>
+
+            <!--indivual topics-->
+            <h2 class="secondary-header">TOPICS COVERED</h2>
+            <ul class="topics" ng:repeat="child in courses[whatItem].topicDesc"  ng-hide="!child.topic || child.topic ===''">
+              <li>{{child.topic}}</li>
+            </ul>
+        </div>
+    </li>
+  </ul>  
+</section>

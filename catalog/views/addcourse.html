@@ -1,0 +1,137 @@
+<div class="meetings cg">
+    <fieldset>
+        <h1>Add Course</h1>
+        <form name="addcourse" method="POST" novalidate>
+        	<input type="hidden" name="course_id" ng-model="course_id">
+
+            Course Name:<input class="cf" type="text" name="courseName"
+            ng-model="courseCatalogPost.courseName"
+            ng-required="true"/><br/> 
+            <p ng-show="addcourse.courseName.$invalid && addcourse.courseName.$touched">you must fill out your course name</p>
+            
+            <div class="statusField">Course Status: Active/InActive: <input class="status" type="checkbox" ng-model="courseStatus" ng-true-value="'Active'"></div>  
+ 		
+ 		Categories:
+        <select multiple size="10" ng-model="courseCatalogPost.categories">
+			<option value="Labor/Employment Law">Labor/Employment Law</option>
+			<option value="Antitrust and Fair Competition">Antitrust and Fair Competition</option>
+			<option value="Business Conduct and Ethics">Business Conduct and Ethics</option>
+			<option value="Finance and Accounting">Finance and Accounting</option>
+			<option value="Information Security and Intellectual Property">Information Security and Intellectual Property</option>
+			<option value="International Trade">International Trade</option>
+			<option value="Government Contracting">Government Contracting</option>
+			<option value="European Courses">European Courses (Courses suitable for European audience with little or no customization required)</option>
+			<option value="Global Courses ">Global Courses</option>
+			<option value="Focus Courses">Focus Courses</option>
+			<option value="Consumer Protection">Consumer Protection</option>
+			<option value="EthiFlicksâ„¢">EthiFlicksâ„¢</option>
+			<option value="RealBiz Shorts: Energy">RealBiz Shorts: Energy</option>
+			<option value="Pulse">Pulse</option>
+			<option value="Modular Code Courses (Modular versions are not to be deployed together with Foundation versions)">Modular Code Courses (Modular versions are not to be deployed together with Foundation versions)</option>
+			<option value="RealBiz Shorts: Life Sciences">RealBiz Shorts: Life Sciences</option>
+			<option value="RealBiz Shorts: Ethics & Compliance">RealBiz Shorts: Ethics & Compliance</option>
+		</select> 
+
+            <div class="contentleft"> 
+	            Course Number:<input class="small-input" type="text" name="courseNumber" ng-model="courseCatalogPost.courseNumber"
+	            ng-required="true"/>
+	            <p ng-show="addcourse.courseNumber.$invalid && addcourse.courseNumber.$touched">you must fill out course number</p>
+	            <br><br>
+	            Training Frequency:<input class="small-input" type="text" ng-model="courseCatalogPost.trainingFreq" name="trainingFreq"/>
+	            <br>
+        	</div>
+
+            <div class="contentright"> 
+	            Length:<input class="small-input" type="text" ng-model="courseCatalogPost.length" name="length"/>
+	            <br/><br>
+	            Days from hire:<input class="small-input" type="text" ng-model="courseCatalogPost.daysFromHire" name="daysFromHire"/>
+	            <br/>
+        	</div>
+
+    		Recommended Audience:<input type="text" ng-model="courseCatalogPost.recAudience" name="recAudience"/>
+            <br>
+            
+            Course Description:<br>
+            <text-angular  name="htmlcontent" ng-model="htmlVariable" ta-disabled="disabled"></text-angular>
+            <p> {{htmlVariable}} </p>
+            <p ng-show="htmlVariable.$invalid && htmlVariable.$touched">you must fill out your course name</p>
+
+            <hr class="hr-blue"/>
+            Topics Covered:
+            <div class="form-group" data-ng-repeat="topic in topics">
+				<input type="text" id="myInput" ng-model="topic.topicDesc" name="" placeholder="Enter Topic">
+				<i class="fa fa-plus-square fa-lg" ng-show="$last" ng-click="addNewTopic()"> <span class="small-topic">Add another Topic</span></i> 
+				<i class="fa fa-minus-square fa-lg" ng-show="$last" ng-click="removeTopic()"> <span class="small-topic">Remove</span></i> 
+  			</div>
+	
+  			 <!-- To test all of the topics <div id="choicesDisplay">{{ topics }}</div> -->
+
+			<hr class="hr-blue"/>
+
+            Avaliable Language:<br>
+            <select multiple size="10" ng-model="courseCatalogPost.languageCode">
+			   	<option value="en">English</option>
+				<option value="ar">Arabic</option>
+				<option value="hy">Armenian</option>
+				<option value="bs">Bosnian</option>
+				<option value="bg">Bulgarian</option>
+				<option value="zh_Hans">Chinese(Simplified)</option>
+				<option value="zh_Hant">Chinese(Traditional)</option>
+				<option value="hr">Croatian</option>
+				<option value="cs">Czech</option>
+				<option value="da">Danish</option>
+				<option value="nl">Dutch</option>
+				<option value="en_CA">English(Canadian)</option>
+				<option value="en_GB">English(UnitedKingdom)</option>
+				<option value="et">Estoniankeel</option>
+				<option value="tl">Filipino</option>
+				<option value="fi">Finnish</option>
+				<option value="fl">Flemish</option>
+				<option value="fr">French</option>
+				<option value="fr_BE">French(Belgium)deBelgique</option>
+				<option value="fr_CA">French(Canadian)canadien</option>
+				<option value="ka">Georgianá</option>
+				<option value="de">German</option>
+				<option value="el">Greek</option>
+				<option value="he">Hebrew</option>
+				<option value="hi">Hindi</option>
+				<option value="hu">Hungarian</option>
+				<option value="id">Indonesian</option>
+				<option value="is">Icelandic</option>
+				<option value="it">Italian</option>
+				<option value="ja">Japanese</option>
+				<option value="ko">Korean</option>
+				<option value="lv">Latvian</option>
+				<option value="lt">Lithuanian</option>
+				<option value="ms">Malay</option>
+				<option value="ml">Malayalamà</option>
+				<option value="no">Norwegian</option>
+				<option value="pl">Polish</option>
+				<option value="pt">Portuguese</option>
+				<option value="pt_BR">Portuguese(Brazil)doBrasil</option>
+				<option value="ro">Romanian</option>
+				<option value="ru">Russian</option>
+				<option value="sr">Serbian</option>
+				<option value="si">Sinhalaà</option>
+				<option value="sk">Slovak</option>
+				<option value="es">Spanish(Castilian)</option>
+				<option value="es_AR">Spanish(Argentina)</option>
+				<option value="es_CL">Spanish(Chile)</option>
+				<option value="es_419">Spanish(LatinAmerican)</option>
+				<option value="sv">Swedish</option>
+				<option value="ta">Tamilà</option>
+				<option value="th">Thai</option>
+				<option value="tr">Turkish</option>
+				<option value="uk">Ukrainian</option>
+				<option value="ur">Urdu</option>
+				<option value="vi">Vietnamese</option>
+			</select> 
+
+			<div id="choicesDisplay">
+      			{{courseCatalogPost.languageCode}}
+    		</div>   
+</div>
+
+            <button data-ng-click="addCourseCatalogPost()" name="add"><i class="fa fa-file-text-o fa-2x"></i> ADD COURSE</button>
+        </form>
+    </fieldset>

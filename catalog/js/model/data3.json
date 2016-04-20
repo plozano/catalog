@@ -1,0 +1,80 @@
+[  
+   {  
+      "topicDesc":[  
+         {  
+            "topic":"Explain the importance of using multiple recruitment methods"
+         },
+         {  
+            "topic":"Identify people and parties to whom anti-discrimination laws apply"
+         }
+      ],
+      "langDesc":[  
+         {  
+            "lang":"Dutch"
+         },
+         {  
+            "lang":"English"
+         },
+         {  
+            "lang":"German"
+         }
+      ],
+      "courseName":"A Guide To Appropriate Interviewing",
+      "courseNumber":"45091",
+      "length":"35 minutes",
+      "daysFromHire":"90",
+      "trainingFreq":"2 years",
+      "recAudience":"This course is designed for all employees involved in the interview process ",
+      "courseDesc":"\"A Guide to Appropriate Interviewing\" covers best practices that promote ethical and legal interviewing practices. The course describes essential principles, including anti-discrimination laws and protected classes, and also explains the importance of diverse recruitment methods. There is guidance concerning proper formulation of applications and retention of resumes, as well as proper protocols for conducting interviews. Finally, you are given direction on how to report interview violations. Real world scenarios and activities reinforce understanding."
+   },
+   {  
+      "topicDesc":[  
+         {  
+            "topic":"Define reasonable accommodation and best practices for the work environment"
+         },
+         {  
+            "topic":"Describe best practices during the hiring process"
+         }
+      ],
+      "langDesc":[  
+         {  
+            "lang":"Czech"
+         },
+         {  
+            "lang":"English"
+         },
+         {  
+            "lang":"Spanish(LatinAmerican)"
+         }
+      ],
+      "courseName":"Complying With The Americans W",
+      "courseNumber":"45092",
+      "length":"30 minutes",
+      "daysFromHire":"90",
+      "trainingFreq":"2 years",
+      "recAudience":"All Employees in the organization",
+      "courseDesc":"Complying With the Americans with Disabilities Act (ADA) provides important information on how federal law protects persons wi"
+   },
+   {  
+      "topicDesc":[  
+         {  
+            "topic":"Identify what data is considered protected health information (PHI)"
+         },
+         {  
+            "topic":"Understand HIPAA regulations"
+         }
+      ],
+      "langDesc":[  
+         {  
+            "lang":"English"
+         }
+      ],
+      "courseName":"Complying With HIPAA: General ",
+      "courseNumber":"45366",
+      "length":"30 minutes",
+      "daysFromHire":"90",
+      "trainingFreq":"2 years",
+      "recAudience":"All employees and managers with access to protected health information",
+      "courseDesc":"\"Complying With HIPAA: General Edition\" introduces the government regulations that control the release of protected health information (PHI), and describes the concepts of covered entities, the plans to which HIPAA does and does not apply, as well as the HIPAA Privacy Rule."
+   }
+]

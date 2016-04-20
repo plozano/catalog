@@ -1,0 +1,160 @@
+<section class="coursespage">
+
+    <h1>Catalog Search</h1>
+
+      <div class="search">
+        <input id="search" type="text" ng-model="query" placeholder="Search Catalog" autofocus><i class="fa fa-search fa-2x"></i>
+        
+        <div ng-click="custom =!custom; plusSearch = !plusSearch">
+            <p><i ng-class="{'fa fa-minus': plusSearch, 'fa fa-plus': !plusSearch}"></i>Advanced Search</p> 
+        </div>
+
+        <div class="advanced-search clear"  ng-hide="custom">
+            <div class="search-language">
+              <label>Avaliable Language:  
+                <select class="select cf" ng-model="searchLanguage" ng-hide="custom">
+                <option value="English">English</option>
+                <option value="Arabic">Arabic</option>
+                <option value="Armenian">Armenian</option>
+                <option value="Bosnian">Bosnian</option>
+                <option value="Bulgarian">Bulgarian</option>
+                <option value="Chinese(Simplified)">Chinese(Simplified)</option>
+                <option value="Chinese(Traditional)">Chinese(Traditional)</option>
+                <option value="Croatian">Croatian</option>
+                <option value="Czech">Czech</option>
+                <option value="Danish">Danish</option>
+                <option value="Dutch">Dutch</option>
+                <option value="English(Canadian)">English(Canadian)</option>
+                <option value="English(UnitedKingdom)">English(UnitedKingdom)</option>
+                <option value="Estoniankeel">Estoniankeel</option>
+                <option value="Filipino">Filipino</option>
+                <option value="Finnish">Finnish</option>
+                <option value="Flemish">Flemish</option>
+                <option value="French">French</option>
+                <option value="French(Belgium)deBelgique">French(Belgium)deBelgique</option>
+                <option value="French(Canadian)canadien">French(Canadian)canadien</option>
+                <option value="Georgianá">Georgianáƒ”áƒœáƒ</option>
+                <option value="German">German</option>
+                <option value="Greek">Greek</option>
+                <option value="Hebrew">Hebrew</option>
+                <option value="Hindi"></option>
+                <option value="Hungarian">Hungarian</option>
+                <option value="Indonesian">Indonesian</option>
+                <option value="Icelandic">Icelandic</option>
+                <option value="Italian">Italian</option>
+                <option value="Japanese">Japanese</option>
+                <option value="Korean">Korean</option>
+                <option value="Latvian">Latvian</option>
+                <option value="Lithuanian">Lithuanian</option>
+                <option value="Malay">Malay</option>
+                <option value="Malayalamà´¾à´³à´‚">Malayalamà´¾à´³à´‚</option>
+                <option value="Norwegian">Norwegian</option>
+                <option value="Polish">Polish</option>
+                <option value="Portuguese">Portuguese</option>
+                <option value="Portuguese(Brazil)doBrasil">Portuguese(Brazil)doBrasil</option>
+                <option value="Romanian">Romanian</option>
+                <option value="Russian">Russian</option>
+                <option value="Serbian">Serbian</option>
+                <option value="Sinhala">Sinhala</option>
+                <option value="Slovak">Slovak</option>
+                <option value="Spanish(Castilian)">Spanish(Castilian)</option>
+                <option value="Spanish(Argentina)paraArgentina">Spanish(Argentina)paraArgentina</option>
+                <option value="Spanish(Chile)paraChile">Spanish(Chile)paraChile</option>
+                <option value="Spanish(LatinAmerican)paraLatinoamrica">Spanish(LatinAmerican)paraLatinoamrica</option>
+                <option value="Swedish">Swedish</option>
+                <option value="Tamilà">Tamilà¯</option>
+                <option value="Thai">Thai</option>
+                <option value="Turkish">Turkish</option>
+                <option value="Ukrainian">Ukrainian</option>
+                <option value="Urdu">Urdu</option>
+                <option value="Vietnamese">Vietnamese</option>
+              </select>
+            </label>
+      </div>  
+
+            <label class="formgroup">by:
+              <select class="select" ng-model='courseOrder'>
+                <option value="courseNumber" selected>Course Number</option>
+                <option value="courseName">Course Name</option>
+              </select>
+            </label>
+            <label class="formgroup">
+              <input type="radio" ng-model="direction" name="direction" checked>
+              ascending
+             </label>
+            <label class="formgroup">
+              <input type="radio" ng-model="direction" name="direction" value="reverse">
+              descending
+            </label>
+
+<!--                   <select ng-model="selectedItem" ng-options="
+item.courseName for item in courses"> -->
+          </div><!--end of advanced-search-->
+      </div>
+  
+     <ul class="courseslist" ng-show="query || searchLanguage "> 
+      <h1>Results</h1>
+      <!-- <div>{{(courses | filter:query).length}}</div> -->
+      <p ng-show="!filtered.length">No Courses Avaliable</p>
+
+     <li class="courses cf" ng-repeat="item in filtered = (courses | filter: query | orderBy: courseOrder:direction | filter: searchLanguage)">
+
+
+<!-- <li class="courses cf" ng-repeat="item in courses | filter: query | orderBy: artistOrder:direction"> -->
+     
+        <div class="info"> 
+          <div class="shortDesc">
+       
+              <!-- <a href="#/coursedetails/{{courses.indexOf(item)}}"> -->
+              <span class="test" ng-click="custom =!custom; plusSearch = !plusSearch"><i ng-class="{'fa fa-minus-square fa-lg': plusSearch, 'fa fa-plus-square fa-lg': !plusSearch}" ng-bind-html="highlight(item.courseName, query)">{{item.courseName}}</i></span>
+              
+              <div class="catalog-subheader">
+              <span class="subheader">Course#</span>
+              <p class="cf" ng-bind-html="highlight(item.courseNumber, query)">{{item.courseNumber}}</p>
+              </div> 
+        </div>  
+
+              <h2 class="secondary-header" >Course Description</h2>
+              <p ng-class="{'truncate': !plusSearch, '': plusSearch}" ng-bind-html="highlight(item.courseDesc, query)">
+              </p>
+          
+      </div>
+
+            <div class="course-details" ng-hide="custom">
+              
+             
+              <div class="shortDesc">
+                  <div class="contentleft">
+                    <span class="subheader">Length</span> 
+                    <p>{{item.length}}</p>
+                    <span class="subheader">Training Frequency</span>
+                    <p>{{item.trainingFreq}}</p>
+                  </div>
+
+                  <div class="contentright cf">
+                    <span class="subheader">Recommended Audience</span>
+                    <p>{{item.recAudience}}</p>
+                  </div>
+              </div>
+
+              <!--indivual Categories-->
+                    <h2 class="secondary-header">Course Category</h2>
+                    <ul class="categories" ng:repeat="child in item.categories">
+                      <li ng-bind-html="highlight(child.categoryText, query || searchLanguage)">{{item.categories}}</li>
+                  </ul>
+
+
+              <!--indivual topics-->
+                  <h2 class="secondary-header">Topics Covered</h2>
+                    <ul class="topics" ng:repeat="child in item.topicDesc"  ng-hide="!child.topic || child.topic ===''">
+                    <li ng-bind-html="highlight(child.topic, query)">{{child.topic}}</li>
+                    </ul>
+                  <h2 class="secondary-header">Available Languages</h2>
+                    <ul class="langugages" ng:repeat="child in item.languages" ng-hide="!child.langText || child.langText ===''">
+                      <li ng-bind-html="highlight(child.langText, query || searchLanguage)">{{child.langText}}</li>
+                  </ul>
+        </div>
+    </li>
+  </ul>  
+</section>
+<!-- <aside class="cf" ng-include="'views/leftnav.html'"></aside> -->
